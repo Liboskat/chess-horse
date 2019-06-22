@@ -66,13 +66,14 @@ public class HorseCountServiceImpl implements HorseCountService {
         List<ChessPosition> children = new ArrayList<>();
         int x = node.getX();
         int y = node.getY();
+        int distance = node.getDistance() + 1;
 
         //1 вправо и 2 вверх
         if((x + 1 < width) && (y + 2 < height)) {
             children.add(ChessPosition.builder()
                     .x(x + 1)
                     .y(y + 2)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //1 вправо и 2 вниз
@@ -80,7 +81,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x + 1)
                     .y(y - 2)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //2 вправо и 1 вверх
@@ -88,7 +89,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x + 2)
                     .y(y + 1)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //2 вправо и 1 вниз
@@ -96,7 +97,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x + 2)
                     .y(y - 1)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //1 влево и 2 вверх
@@ -104,7 +105,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x - 1)
                     .y(y + 2)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //1 влево и 2 вниз
@@ -112,7 +113,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x - 1)
                     .y(y - 2)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //2 влево и 1 вверх
@@ -120,7 +121,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x - 2)
                     .y(y + 1)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
         //2 влево и 1 вниз
@@ -128,7 +129,7 @@ public class HorseCountServiceImpl implements HorseCountService {
             children.add(ChessPosition.builder()
                     .x(x - 2)
                     .y(y - 1)
-                    .distance(node.getDistance() + 1)
+                    .distance(distance)
                     .build());
         }
 
