@@ -26,7 +26,7 @@ public class ChessPosition implements Comparable<ChessPosition> {
     /**
      * Преобразует строку с расположением клетки на шахматной доске в объект
      */
-    public static ChessPosition getFromStringPosition(String position) {
+    public static ChessPosition fromStringPosition(String position) {
         position = position.toUpperCase();
         Matcher m = POSITION_PATTERN.matcher(position);
 
@@ -56,12 +56,10 @@ public class ChessPosition implements Comparable<ChessPosition> {
 
     @Override
     public int compareTo(ChessPosition o) {
-        if(this.y < o.y) {
-            return -1;
-        } else if (this.y > o.y){
-            return 1;
-        } else {
+        if(this.y == o.y) {
             return Integer.compare(this.x, o.x);
+        } else {
+            return Integer.compare(this.y, o.y);
         }
     }
 }

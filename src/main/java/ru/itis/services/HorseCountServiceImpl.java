@@ -21,8 +21,8 @@ public class HorseCountServiceImpl implements HorseCountService {
     @Override
     public HorseCountResult getResult(@Valid InputData inputData) {
         //преобразование позиций в объекты для удобной работы
-        ChessPosition startPosition = ChessPosition.getFromStringPosition(inputData.getStart());
-        ChessPosition endPosition = ChessPosition.getFromStringPosition(inputData.getEnd());
+        ChessPosition startPosition = ChessPosition.fromStringPosition(inputData.getStart());
+        ChessPosition endPosition = ChessPosition.fromStringPosition(inputData.getEnd());
 
         /*
         создание списка посещенных позиций и очереди позиций,
