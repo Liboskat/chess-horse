@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * @author Ilshat Rizvanov
  **/
-@ComponentScan({"ru.itis.app", "ru.itis.controllers", "ru.itis.services", "ru.itis.config"})
+@ComponentScan({"ru.itis.controllers", "ru.itis.services", "ru.itis.config"})
 @SpringBootApplication
 public class Application {
 
