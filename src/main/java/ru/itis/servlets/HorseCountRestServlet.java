@@ -37,18 +37,20 @@ public class HorseCountRestServlet extends HttpServlet {
 
         try {
             resp.setStatus(HttpServletResponse.SC_OK);
-            objectMapper.writeValue(w, horseCountService.getResult(InputData.builder()
-                    .width(Integer.parseInt(req.getParameter("width")))
-                    .height(Integer.parseInt(req.getParameter("height")))
-                    .start(req.getParameter("start"))
-                    .end(req.getParameter("end"))
-                    .build()));
+            objectMapper.writeValue(w, horseCountService.getResult(
+                    InputData.builder()
+                            .width(Integer.parseInt(req.getParameter("width")))
+                            .height(Integer.parseInt(req.getParameter("height")))
+                            .start(req.getParameter("start"))
+                            .end(req.getParameter("end"))
+                            .build()));
         } catch (IllegalArgumentException | ConstraintViolationException e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            objectMapper.writeValue(w, ExceptionResponse.builder()
-                    .message(e.getMessage())
-                    .status(HttpStatus.BAD_REQUEST.toString())
-                    .build());
+            objectMapper.writeValue(w,
+                    ExceptionResponse.builder()
+                            .message(e.getMessage())
+                            .status(HttpStatus.BAD_REQUEST.toString())
+                            .build());
         } finally {
             w.close();
         }

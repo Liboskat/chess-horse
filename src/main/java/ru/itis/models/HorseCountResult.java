@@ -14,10 +14,5 @@ import lombok.Data;
 @Builder
 @Data
 public class HorseCountResult {
-    private static final Gson gson = new Gson();
     private Integer result;
-
-    public String toJson() {
-        return gson.toJson(this);
-    }
 }
